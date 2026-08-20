@@ -9,6 +9,7 @@ and automation.
 |---|---|---|
 | `server-stats.sh` | Displays basic macOS server performance statistics | [Read more](readmes/server-stats.md) |
 | `start.sh` | Runs the apps in your specific way | [Read more](readmes/start.md) |
+| `end.sh` | Close all running apps | [Read more](readmes/end.md) 
 
 ## Requirements
 
@@ -50,3 +51,5 @@ cd scripts
 - [ ] Check if an application is already running
 - [ ] Add error handling
 - [ ] Add configuration file support
+
+### `end.sh`

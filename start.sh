@@ -16,29 +16,36 @@ echo "start with fullscreen apps"
 # for apps that should run in fullscreen mode
 for i in "${fullscreen_apps[@]}"; do
     open -a "$i"
+
+    sleep 1
+
     osascript -e "activate app \"$i\""
+
+    sleep 1
+
     osascript -e 'tell application "System events" to keystroke "f" using {command down, control down}'
+    
+    sleep 2
 done
 
 echo "end with fullscreen start"
 
 echo "start with varios name apps"
 
-for key in "${!various_name_apps[@]}"
-do
-    echo "$key"="${various_name_apps[$key]}"
+for key in "${!various_name_apps[@]}"; do
+    open -a "$key"
 
-    open -a "Docker"
+    process_name="${various_name_apps[$key]}"
 
-    sleep 5
+    sleep 7
 
-    osascript -e '
-    tell application "System Events"
-        if exists process "Docker Desktop" then
-            set visible of process "Docker Desktop" to false
+    osascript -e "
+    tell application \"System Events\"
+        if exists process \"$process_name\" then
+            set visible of process \"$process_name\" to false
         end if
     end tell
-    '
+    "
 done
 
 echo "end with various name apps"

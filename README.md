@@ -44,6 +44,7 @@ cd scripts
 
 - [x] Launch applications
 - [x] Open applications in fullscreen mode
+- [x] Open applications in hide mode
 - [ ] Add application groups/profiles
 - [ ] Add command-line arguments
 - [ ] Check if an application is already running

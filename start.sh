@@ -1,14 +1,15 @@
 #! /usr/bin/env bash
 
+declare -A various_name_apps
+
 fullscreen_apps=(
   "Obsidian"
   "Google Chrome"
   "Visual Studio Code"
 )
 
-minimized_apps=(
-  "Docker Desktop"
-)
+# when you start Docker, starts Docker Desktop, so you should open Docker and hide Docker Desktop
+various_name_apps=(["Docker"]="Docker Desktop")
 
 echo "start with fullscreen apps"
 
@@ -21,14 +22,23 @@ done
 
 echo "end with fullscreen start"
 
-echo "start with minimized apps"
+echo "start with varios name apps"
 
-# for apps that should run on minimized mode (for example docker desktop)
-for i in "${minimized_apps[@]}"; do
-    echo "$i"
-    open -a "$i"
-    osascript -e "activate app \"$i\""
-    osascript -e 'tell application "System events" to keystroke "m" using {command down}'
+for key in "${!various_name_apps[@]}"
+do
+    echo "$key"="${various_name_apps[$key]}"
+
+    open -a "Docker"
+
+    sleep 5
+
+    osascript -e '
+    tell application "System Events"
+        if exists process "Docker Desktop" then
+            set visible of process "Docker Desktop" to false
+        end if
+    end tell
+    '
 done
 
-echo "end with minimized apps"
+echo "end with various name apps"

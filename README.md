@@ -13,7 +13,7 @@ and automation.
 ## Requirements
 
 - macOS
-- Bash
+- Bash 4+
 - AppleScript
 
 ## Usage

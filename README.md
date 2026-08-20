@@ -1,6 +1,6 @@
 # Scripts
 
-A collection of Bash and Apple Scripts scripts for macOS 
+A collection of Bash and AppleScript scripts for macOS 
 and automation.
 
 ## Scripts Description
@@ -22,4 +22,30 @@ Clone the repository:
 
 ```bash
 git clone <https://github.com/namaksimow/scripts.git>
-cd server-scripts
+cd scripts
+```
+
+## Roadmap / TODO
+
+### `server-stats.sh`
+
+- [ ] Display total CPU usage
+- [ ] Display memory usage
+- [ ] Display disk usage
+- [ ] Show top 5 processes by CPU usage
+- [ ] Show top 5 processes by memory usage
+- [ ] Add system uptime information
+- [ ] Add network statistics
+- [ ] Add command-line options
+- [ ] Improve output formatting
+- [ ] Add logging
+
+### `start.sh`
+
+- [x] Launch applications
+- [x] Open applications in fullscreen mode
+- [ ] Add application groups/profiles
+- [ ] Add command-line arguments
+- [ ] Check if an application is already running
+- [ ] Add error handling
+- [ ] Add configuration file support

@@ -41,9 +41,9 @@ Applications that should be launched in fullscreen mode are defined in the `full
 
 ```bash
 fullscreen_apps=(
-  "Obsidian"
-  "Google Chrome"
-  "Visual Studio Code"
+  "App 1"
+  "App 2"
+  "App 3"
 )
 ```
 
@@ -75,16 +75,16 @@ To add another fullscreen application, simply add its name to the array:
 
 ```bash
 fullscreen_apps=(
-  "Obsidian"
-  "Google Chrome"
-  "Visual Studio Code"
-  "Telegram"
+  "App 1"
+  "App 2"
+  "App 3"
+  "App 4"
 )
 ```
 
 ## Applications With Different Process Names
 
-Some macOS applications are launched using one name but appear in `System Events` under a different process name.
+Some macOS applications are launched using one name but appear in `System Events` under a different process name, for example `Docker Desktop`.
 
 These applications are defined using the `various_name_apps` associative array:
 
@@ -197,18 +197,18 @@ The complete execution flow is:
 ```text
 Start
   │
-  ├── Open Obsidian
+  ├── Open App 1
   │     └── Enter fullscreen
   │
-  ├── Open Google Chrome
+  ├── Open App 2
   │     └── Enter fullscreen
   │
-  ├── Open Visual Studio Code
+  ├── Open App 3
   │     └── Enter fullscreen
   │
-  ├── Open Docker
-  │     └── Wait for Docker Desktop
-  │           └── Hide Docker Desktop
+  ├── Open App 4 name
+  │     └── Wait for App 4 process name
+  │           └── Hide App 4 process name
   │
   └── Finish
 ```
@@ -218,19 +218,19 @@ Start
 Make the script executable:
 
 ```bash
-chmod +x start-apps.sh
+chmod +x start.sh
 ```
 
 Run it:
 
 ```bash
-./start-apps.sh
+bash path/start.sh
 ```
 
 Alternatively, run it directly with Bash:
 
 ```bash
-bash start-apps.sh
+bash start.sh
 ```
 
 ## Customization
@@ -241,18 +241,18 @@ For example:
 
 ```bash
 fullscreen_apps=(
-  "Obsidian"
-  "Google Chrome"
-  "Visual Studio Code"
-  "Telegram"
+  "App 1"
+  "App 2"
+  "App 3"
+  "App 4"
 )
 
 various_name_apps=(
-  ["Docker"]="Docker Desktop"
+  ["App name"]="Process name"
 )
 ```
 
-After this change, Telegram will also be launched and switched to fullscreen mode.
+After this change, App 4 will also be launched and switched to fullscreen mode.
 
 ## Delays
 
@@ -296,7 +296,7 @@ The purpose of this script is to quickly restore a predefined macOS workspace.
 Instead of manually opening and organizing applications after starting the computer, run:
 
 ```bash
-./start-apps.sh
+bash path/start.sh
 ```
 
 The script will automatically launch the required applications, switch selected applications to fullscreen mode, and hide background applications such as Docker Desktop.
